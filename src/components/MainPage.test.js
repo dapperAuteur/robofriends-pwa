@@ -7,6 +7,7 @@ let wrapper;
 
 beforeEach(() => {
   const mockProps = {
+    // jest.fn() is just a simple function and communicates that to the test suite
     onRequestRobots: jest.fn(),
     robots: [],
     searchField: '',
@@ -25,5 +26,18 @@ it('renders MainPage without crashing', () => {
 });
 
 it('filters robots correctly', () => {
-  expect(wrapper.instance().filterRobots([])).toEqual([]);
+  const mockProps2 = {
+    // jest.fn() is just a simple function and communicates that to the test suite
+    onRequestRobots: jest.fn(),
+    robots: [{
+      name: 'john'
+    },{
+      name: 'earl'
+    }],
+    searchField: 'j',
+    isPending: false
+  }
+  let wrapper2 = shallow(<MainPage { ...mockProps2 } />);
+  expect(wrapper.instance().filterRobots()).toEqual([]);
+  expect(wrapper2.instance().filterRobots()).toEqual([{ name: 'john' }]);
 });
