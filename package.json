@@ -20,6 +20,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:watch": "npm test -- --watch",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-jest": "23.6.0",
+    "enzyme": "3.7.0",
+    "enzyme-adapter-react-16": "1.6.0"
   }
 }

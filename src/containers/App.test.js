@@ -1,7 +1,9 @@
 import { shallow } from 'enzyme';
+import './../setupTests';
 import React from 'react';
-import App from './CounterButton';
+import App from './App';
 
 it('expect to render App component', () => {
-  expect(shallow(<App />)).toMatchSnapshot();
+  const mockStore = {};
+  expect(shallow(<App store = { mockStore } />)).toMatchSnapshot();
 });
